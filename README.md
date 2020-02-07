@@ -5,7 +5,7 @@
  
     (look over the code, change the mail subject & http port perhaps?)
     go build post2mail.go 
-    ./post2mail --help
+    TODO
 
 ## Using gmail as a smtp server
 The default vales are set up for using gmail to send mail through. You can get a unique random password from google called "App passwords". These can be revoked without changing your main password. See under Account >> Security.
