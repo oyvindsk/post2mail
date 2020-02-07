@@ -3,17 +3,14 @@
 
 ## Usage
  
-    (look over the code, change the mail subject & http port perhaps?)
-    go build post2mail.go 
-    TODO
-
+    (look over the code, change the email template perhaps?)
+    See test-server/*.go for an example and some code to copy
+    
 ## Using gmail as a smtp server
-The default vales are set up for using gmail to send mail through. You can get a unique random password from google called "App passwords". These can be revoked without changing your main password. See under Account >> Security.
+I currently use gmail to send mail through. You can get a unique random password from google called "App passwords". These can be revoked without changing your main password. See under Account >> Security.
 
 ## Todo
- - Error-checking, don't just die all the time :)
- - Make the email subject, http port and url configuratable
- - Logging
+dunno? *shrugs*
 
 ## Useful Links
  - http://nathanleclaire.com/blog/2013/12/17/sending-email-from-gmail-using-golang/
