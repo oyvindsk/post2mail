@@ -86,6 +86,15 @@ func (s server) handlePost(w http.ResponseWriter, req *http.Request) {
 	email.Subject = "Someone filled out your form: " + req.FormValue("subject")
 	email.Text = req.FormValue("text")
 
+	// Do stupid spam filtering :P
+	spam, reason := post2mail.IsSpam(email)
+	if spam {
+		log.Printf("handleContactform: skipping spammy post: reason: %q, Refferer: %q, IP: %q, UA: %q", reason, req.Referer(), req.RemoteAddr, req.UserAgent())
+		w.WriteHeader(http.StatusForbidden)
+		fmt.Fprint(w, `{ "Status" : "Not acceptable" , "Success" : "false" }`)
+		return
+	}
+
 	// Send the info on email
 	err := post2mail.FormatAndSendEmail(email, s.smtpInfo)
 

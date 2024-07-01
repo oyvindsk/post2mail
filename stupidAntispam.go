@@ -18,5 +18,10 @@ func IsSpam(ed EmailData) (bool, string) {
 		}
 
 	}
+
+	if strings.HasSuffix(ed.FromEmail, "@mail.ru") {
+		return true, "mail from ends with mail.ru"
+	}
+
 	return false, ""
 }
